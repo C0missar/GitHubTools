@@ -28,13 +28,13 @@ Does an initial git commit to the fork master branch
 
 \- *Pull.sh GitHubTools*
 ```
-Does a git pull from the canonical master
+Does a git pull from the canonical master branch
 ```
 **Commit.sh** $RepoName
 
 \- *Commit.sh* GitHubTools
 ```
-Does a git add -A ./*						# (to add any new files)
-Does a git commit -a						# (and includes the date in the memo field)
+Does a git add -A ./*	(to add any new files)
+Does a git commit -a -m (and includes the date in the memo field)
 Does a git push to the fork master branch
 ```

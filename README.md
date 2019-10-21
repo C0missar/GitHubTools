@@ -2,9 +2,7 @@
 
 ## Some bash scripts to manage local Git repos
 
-Put these files in your ~/bin/ directory, and add ~/bin to your path if it isn't already:
-
-In **~/.bashrc**, add the line
+Put these files in your ~/bin/ directory, and add ~/bin to your path if it isn't already, by adding to **~/.bashrc**, the line:
 ```
 export PATH="$PATH:~/bin
 ```

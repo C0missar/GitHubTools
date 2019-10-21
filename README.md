@@ -1,5 +1,5 @@
 README.md
-# GitHubTools
+# H1 GitHubTools
 
 ** Some bash scripts to manage local Git repos
 
@@ -12,7 +12,7 @@ Otherwise, the Canonical is the 'original' on GitHub, and the fork is your copy 
 A Pull request is required to ask the owner to pull changes from your fork into the Canonical (original owner's copy).
 These scripts are hard coded to work only on the master branch.
 
-*		BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+# H2	BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
 i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net 
 
 		Creates or overwrites ~/git/($RepoName)
@@ -22,12 +22,12 @@ i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Sta
 		Does an initial git pull from the canonical master branch
 		Does an initial git commit to the fork master branch
 
-**		Pull.sh $RepoName
+# H2	Pull.sh $RepoName
 i.e 	Pull.sh GitHubTools
 
 		Does a git pull from the canonical master
 
-***		Commit.sh $RepoName
+# H2	Commit.sh $RepoName
 i.e.	Commit.sh GitHubTools
 
 		Does a git add -A ./*		# (to add any new files)

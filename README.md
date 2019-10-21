@@ -12,7 +12,7 @@ Otherwise, the Canonical is the 'original' on GitHub, and the fork is your copy 
 A Pull request is required to ask the owner to pull changes from your fork into the Canonical (original owner's copy).
 These scripts are hard coded to work only on the master branch.
 
-**BuildLocalRepo.sh** $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+**BuildLocalRepo.sh**  $GitHubHost  $CanonPath  $ForkPath  $RepoName  $UserID  $eMail
 
 \- *BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net*
 
@@ -28,13 +28,13 @@ You will be prompted once for your GitHub credentials; from then on, they will b
 
 **Pull.sh** $RepoName
 
-\- *Pull.sh GitHubTools*
+\- *Pull.sh  GitHubTools*
 ```
 Does a git pull from the canonical master branch
 ```
 **Commit.sh** $RepoName
 
-\- *Commit.sh* GitHubTools
+\- *Commit.sh*  GitHubTools
 ```
 Does a git add -A ./* (to add any new files)
 Does a git commit -a -m (and includes the date in the memo field)

@@ -14,9 +14,9 @@ These scripts are hard coded to work only on the master branch.
 
 ## BuildLocalRepo.sh
 
-BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+**BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail**
 
-*i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net *
+*i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net*
 
 ```
 Creates or overwrites ~/git/($RepoName)

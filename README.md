@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 README.md
 # GitHubTools
 
@@ -8,10 +7,9 @@ README.md
 		i.e. in ~/.bashrc, add the line export PATH="$PATH:~/bin"
 
 They will automatically move to the local repo to do their work, and will move back to whence they came when finished.
-
 For your own project, the Canonical and the Fork can be the same.
-Otherwise, the Canonical is the 'original' on GitHub, and the fork is your copy on GitHub
-A Pull request is required to ask the owner to pull changes from your fork into the Canonical (original owner's copy)
+Otherwise, the Canonical is the 'original' on GitHub, and the fork is your copy on GitHub.
+A Pull request is required to ask the owner to pull changes from your fork into the Canonical (original owner's copy).
 Everything is hard coded to work only on the master branch.
 
 **		BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail

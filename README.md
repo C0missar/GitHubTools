@@ -23,6 +23,8 @@ Sets up your git credentials
 Creates or overwrites your git remote entries
 Does an initial git pull from the canonical master branch
 Does an initial git commit to the fork master branch
+
+You will be prompted once for your GitHub credentials; from then on, they will be autofilled from the credential store.
 ```
 **Pull.sh** $RepoName
 

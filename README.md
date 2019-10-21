@@ -2,7 +2,7 @@
 
 ## Some bash scripts to manage local Git repos
 
-Put these files in your ~/bin/ directory, and add ~/bin to your path if it isn't already;
+Put these files in your ~/bin/ directory, and add ~/bin to your path if it isn't already;\n
 i.e. in ~/.bashrc, add the line export PATH="$PATH:~/bin"
 
 	They will automatically move to the local repo to do their work, and will move back to whence they came when finished.
@@ -13,7 +13,7 @@ i.e. in ~/.bashrc, add the line export PATH="$PATH:~/bin"
 
 ## BuildLocalRepo.sh
 
-BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail\n
 i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net 
 
 		Creates or overwrites ~/git/($RepoName)
@@ -30,7 +30,7 @@ i.e 	Pull.sh GitHubTools
 		Does a git pull from the canonical master
 
 ## Commit.sh
-Commit.sh $RepoName
+Commit.sh $RepoName\n
 i.e.	Commit.sh GitHubTools
 
 		Does a git add -A ./*		# (to add any new files)

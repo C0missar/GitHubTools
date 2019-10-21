@@ -11,7 +11,9 @@ i.e. in ~/.bashrc, add the line export PATH="$PATH:~/bin"
 	A Pull request is required to ask the owner to pull changes from your fork into the Canonical (original owner's copy).
 	These scripts are hard coded to work only on the master branch.
 
-## BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+## BuildLocalRepo.sh
+
+BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
 i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net 
 
 		Creates or overwrites ~/git/($RepoName)
@@ -21,12 +23,14 @@ i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Sta
 		Does an initial git pull from the canonical master branch
 		Does an initial git commit to the fork master branch
 
-## Pull.sh $RepoName
+## Pull.sh
+Pull.sh $RepoName
 i.e 	Pull.sh GitHubTools
 
 		Does a git pull from the canonical master
 
-## Commit.sh $RepoName
+## Commit.sh
+Commit.sh $RepoName
 i.e.	Commit.sh GitHubTools
 
 		Does a git add -A ./*		# (to add any new files)

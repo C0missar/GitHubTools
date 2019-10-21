@@ -5,9 +5,9 @@
 Put these files in your ~/bin/ directory, and add ~/bin to your path if it isn't already:
 
 In **~/.bashrc**, add the line
-
-  **export PATH="$PATH:~/bin**
-
+```
+export PATH="$PATH:~/bin
+```
 They will automatically move to the local repo to do their work, and will move back to whence they came when finished.
 For your own project, the Canonical and the Fork can be the same.
 Otherwise, the Canonical is the 'original' on GitHub, and the fork is your copy on GitHub.

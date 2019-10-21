@@ -32,7 +32,7 @@ Does a git pull from the canonical master
 ```
 **Commit.sh** $RepoName
 
-*Commit.sh* GitHubTools
+- *Commit.sh* GitHubTools
 ```
 Does a git add -A ./*						# (to add any new files)
 Does a git commit -a						# (and includes the date in the memo field)

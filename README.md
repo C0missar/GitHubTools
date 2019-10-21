@@ -16,26 +16,29 @@ These scripts are hard coded to work only on the master branch.
 
 BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
 
-i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net 
+*i.e.	BuildLocalRepo.sh github.com /C0missar/ /C0missar/ GitHubTools C0missar Stan@StanWard.net *
 
-	Creates or overwrites ~/git/($RepoName)
-	Does a git init
-	Sets up your git credentials
-	Creates or overwrites your git remote entries
-	Does an initial git pull from the canonical master branch
-	Does an initial git commit to the fork master branch
-
+```
+Creates or overwrites ~/git/($RepoName)
+Does a git init
+Sets up your git credentials
+Creates or overwrites your git remote entries
+Does an initial git pull from the canonical master branch
+Does an initial git commit to the fork master branch
+```
 ## Pull.sh
 Pull.sh $RepoName
-i.e 	Pull.sh GitHubTools
 
-	Does a git pull from the canonical master
-
+*i.e 	Pull.sh GitHubTools*
+```
+Does a git pull from the canonical master
+```
 ## Commit.sh
 Commit.sh $RepoName
 
-i.e.	Commit.sh GitHubTools
-
-	Does a git add -A ./*		# (to add any new files)
-	Does a git commit -a		# (and includes the date in the memo field)
-	Does a git push to the fork master branch
+i.e.	*Commit.sh GitHubTools*
+```
+Does a git add -A ./*						# (to add any new files)
+Does a git commit -a						# (and includes the date in the memo field)
+Does a git push to the fork master branch
+```

@@ -2,6 +2,7 @@
 ################################################################################
 #
 # BuildLocalRepo.sh $GitHubHost $CanonPath $ForkPath $RepoName $UserID $eMail
+# BuildLocalRepo.sh github.com /RiverSelkie/ /C0missar/ blogz C0missar Stan@StanWard.net
 #
 # Creates a local repo ~/git/$RepoName based on an existing Canonical and Fork,
 # then does an initial pull and commit

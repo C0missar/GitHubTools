@@ -10,7 +10,13 @@
 
 RepoName=$1
 
+# Remember our roots
+
 CWD=(`pwd`)
+
 cd ~/git/$RepoName
 git pull $RepoName-Canon master
+
+# Return to whence we came
+
 cd $CWD

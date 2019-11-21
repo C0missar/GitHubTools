@@ -1,4 +1,100 @@
-# MySQL installation notes (is this really necessary with MAMP installed?)
+#Launchcode environment build (Windows 10/WSL, Ubuntu 18.0.4)
+
+
+# Install Visual Studio Code 1.40.1 for Windows 64 bit
+# https://code.visualstudio.com/download#
+# Execute VSCodeUserSetup-x64-1.40.1.exe (from Windows)
+
+
+# Install MAMP/MAMP Pro 4.1.1 for Windows
+# https://downloads.mamp.info/MAMP-PRO-WINDOWS/releases/4.1.1/MAMP_MAMP_PRO_4.1.1.exe
+# Execute MAMP_MAMP_PRO_4.1.1.exe (do NOT select PRO!)
+# (Note that MAMP installs it's own instance of Appache MySQL and PHP - the "AMP" part of the name)
+# Start MAMP from Windows Start memu
+# Under MAMP/Preferences, set the Apache port to 8888, MySQL port to 8889, and Start Servers when starting MAMP
+
+
+# Install miniconda3
+# https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
+# Execute Miniconda3-latest-Linux-x86_64.sh (from bash prompt - add '-u' to update existing installation)
+# Close and restart bash, and execute the following commands:
+	(For Sherwin laptop, the Pulse VPN must be up)
+
+conda install conda-build
+conda update conda-build
+conda update conda
+conda config --set auto_activate_base false
+conda --version
+	conda 4.7.12
+	(Ignore warnings that a newer version of conda exists - it requires a newer version of python)
+conda info --envs
+	base                  *  /c/Users/sxw455/Ubuntu/miniconda3
+
+
+# Build conda environments for EACH project
+
+# hello-flask
+conda create --name hello-flask
+conda activate hello-flask (you MUST be in the correct vEnv first!)
+conda install flask
+(Install whatever tools the project needs)
+
+# flask-env
+conda create --name flask-env
+conda activate flask-env
+conda install flask
+conda install pymysql
+conda install -c conda-forge flask-sqlalchemy
+
+# blogz
+conda create --name blogz
+conda activate blogz
+conda install flask
+conda install pymysql
+conda install -c conda-forge flask-sqlalchemy
+
+# get-it-done
+conda create --name get-it-done
+conda activate get-it-done
+conda install flask
+conda install pymysql
+conda install -c conda-forge flask-sqlalchemy
+
+
+# Create a database for EACH project (that needs one):
+
+	Click on "Open WebStart Page" and click on MyPHPAdmin
+	Create a User name that will be the same as the database name (i.e. 'blogz','get-it-done')
+	Set the Host name to Local (localhost)
+	Set the Password to the same as the User name (dev environments only; real environments need real passwords)
+	Check "Create database with same name and grant all privileges"
+	Click "Go" at the bottom
+
+# Build main.py for the project, which must include the database connection string like the following
+# (you must be in that project's conda environment)
+
+	dialect+driver://username:password@host:port/database
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blogz:blogz@localhost:8889/blogz'
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://get-it-done:get-it-done@localhost:8889/get-it-done'
+
+	Build the tables and fields needed in main.py.  Then, run python from the project folder
+
+	python
+	>>> db
+	>>> from main import db,(all table names from main.py)
+	>>> db.create_all()
+
+	(This should happen automatically in main.py if the database doesn't already exist - need to figure that out)
+
+
+
+
+
+
+
+########## Optional Stuff - none of this is needed for Launchcode apps ###########
+
+# MySQL installation notes (is this really necessary with MAMP installed? - it installs a competing server on port 3306)
 #(see https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
 #(However, there are missing steps, noted below)
 
@@ -39,69 +135,3 @@ pip install SQLAlchemy==1.3.10 --user
 pip install Flask-SQLAlchemy -- user
 pip install php					(Is this needed if using MAMP?)
 pip install phpMyAdmin			(Is this needed if using MAMP?)
-
-
-
-#Launchcode environment build (Windows 10/WSL, Ubuntu 18.0.4)
-
-#conda
-Miniconda3-latest-Linux-x86_64.sh (-u to update existing installation)
-conda install conda-build
-conda update conda
-conda update conda-build
-conda update -n base -c defaults conda
-conda config --set auto_activate_base false
-conda --version
-	conda 4.7.12
-conda info --envs
-	# conda environments:
-	#
-	base                  *  /c/Users/sxw455/Ubuntu/miniconda3
-conda create --name hello-flask
-conda create --name flask-env
-conda info --envs
-	# conda environments:
-	#
-	base                     /c/Users/sxw455/Ubuntu/miniconda3
-	hello-flask           *  /c/Users/sxw455/Ubuntu/miniconda3/envs/hello-flask
-	flask-env             *  /c/Users/sxw455/Ubuntu/miniconda3/envs/flask-env
-
-# Building hello-flask vEnv
-source activate hello-flask (-or - conda activate hello-flask)
-conda install flask
-
-# Building flask-env vEnv
-source activate flask-env (-or - conda activate flask-env)
-conda install flask
-conda install -c conda-forge flask-sqlalchemy
-
-
-
-
-
-
-
-
-
-
-#Visual Studio Code
-VSCodeUserSetup-x64-1.39.2.exe
-Extensions:
-	Python
-	Remote - WSL
-	Docker
-	Linter pylint
-Add to ~/.bashrc:
-	export $PATH:C:\Users\sxw455\AppData\Roaming\Python\Python37\Scripts
-
-# PyCharm
-Install MarkDown extension
-Install BashSupport extension
-
-# Flask-SQLAlchemy database connection string:
-# dialect+driver://username:password@host:port/database
-
-# MAMP (Note that MAMP installs it's own instance of MySQL with a port that doesn't conflict with MySQL on 3306)
-# MAMP/MAMP Pro 4.1.1 for Windows (do NOT install PRO!)
-
-Start MAMP from Windows Start memu

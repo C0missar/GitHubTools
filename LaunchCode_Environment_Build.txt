@@ -1,4 +1,4 @@
-# MySQL installation notes
+# MySQL installation notes (is this really necessary with MAMP installed?)
 #(see https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
 #(However, there are missing steps, noted below)
 
@@ -22,34 +22,35 @@ mysql -u root -p
 	CREATE USER 'sxw455'@'localhost' IDENTIFIED BY 'password';
 	GRANT ALL PRIVILEGES ON *.* TO 'sxw455'@'localhost' WITH GRANT OPTION;
 	EXIT
-
-#After a reboot:
-
-sudo service mysql start
-	None of these commands work on WSL:
-	service mysql.service start
-	sudo systemctl start mysql
-	systemctl status mysql.service
 sudo mysqladmin -p -u root version
 	Enter password: (for root)
 	mysqladmin  Ver 8.42 Distrib 5.7.27, for Linux on x86_64
 	(etc.)
 mysql -u sxw455 -p
 
-#flask
+#After a reboot
+sudo service mysql start
+
+# Python installs (are these really neccessary with MiniConda3 and MAMP?
+python -m pip install --upgrade pip --user
+pip install pymysql
 pip install -U Flask --user
-
-#sqlalchemy
 pip install SQLAlchemy==1.3.10 --user
-
-#flask extension for SQLAlchemy
 pip install Flask-SQLAlchemy -- user
+pip install php					(Is this needed if using MAMP?)
+pip install phpMyAdmin			(Is this needed if using MAMP?)
+
+
+
+#Launchcode environment build (Windows 10/WSL, Ubuntu 18.0.4)
 
 #conda
-Miniconda3-latest-Linux-x86_64.sh
+Miniconda3-latest-Linux-x86_64.sh (-u to update existing installation)
 conda install conda-build
 conda update conda
 conda update conda-build
+conda update -n base -c defaults conda
+conda config --set auto_activate_base false
 conda --version
 	conda 4.7.12
 conda info --envs
@@ -57,15 +58,31 @@ conda info --envs
 	#
 	base                  *  /c/Users/sxw455/Ubuntu/miniconda3
 conda create --name hello-flask
-	hello-flask           *  /c/Users/sxw455/Ubuntu/miniconda3/envs/hello-flask
-source activate hello-flask
+conda create --name flask-env
 conda info --envs
 	# conda environments:
 	#
 	base                     /c/Users/sxw455/Ubuntu/miniconda3
 	hello-flask           *  /c/Users/sxw455/Ubuntu/miniconda3/envs/hello-flask
+	flask-env             *  /c/Users/sxw455/Ubuntu/miniconda3/envs/flask-env
 
+# Building hello-flask vEnv
+source activate hello-flask (-or - conda activate hello-flask)
+conda install flask
+
+# Building flask-env vEnv
+source activate flask-env (-or - conda activate flask-env)
+conda install flask
 conda install -c conda-forge flask-sqlalchemy
+
+
+
+
+
+
+
+
+
 
 #Visual Studio Code
 VSCodeUserSetup-x64-1.39.2.exe
@@ -76,11 +93,15 @@ Extensions:
 	Linter pylint
 Add to ~/.bashrc:
 	export $PATH:C:\Users\sxw455\AppData\Roaming\Python\Python37\Scripts
-From VS Code:
-	python -m pip install --upgrade pip --user
-	pip install -U Flask --user
-	pip install Flask-SQLAlchemy -- user
 
 # PyCharm
 Install MarkDown extension
 Install BashSupport extension
+
+# Flask-SQLAlchemy database connection string:
+# dialect+driver://username:password@host:port/database
+
+# MAMP (Note that MAMP installs it's own instance of MySQL with a port that doesn't conflict with MySQL on 3306)
+# MAMP/MAMP Pro 4.1.1 for Windows (do NOT install PRO!)
+
+Start MAMP from Windows Start memu

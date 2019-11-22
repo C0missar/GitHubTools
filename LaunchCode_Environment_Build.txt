@@ -29,7 +29,7 @@ conda --version
 	(Ignore warnings that a newer version of conda exists - it requires a newer version of python)
 conda info --envs
 	base                  *  /c/Users/sxw455/Ubuntu/miniconda3
-
+conda list
 
 # Build conda environments for EACH project
 
@@ -80,9 +80,10 @@ conda install -c conda-forge flask-sqlalchemy
 	Build the tables and fields needed in main.py.  Then, run python from the project folder
 
 	python
-	>>> db
 	>>> from main import db,(all table names from main.py)
 	>>> db.create_all()
+	>>> db.drop_all()
+	>>> db
 
 	(This should happen automatically in main.py if the database doesn't already exist - need to figure that out)
 
